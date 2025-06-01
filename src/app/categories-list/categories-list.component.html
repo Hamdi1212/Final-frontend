@@ -1,0 +1,26 @@
+<div class="cat-table-wrapper-full">
+  <h3 class="cat-table-title">Equipment Categories</h3>
+  <div class="cat-table">
+    <div class="cat-table-header">
+      <span class="cat-table-col cat-col-name">Category</span>
+      <span class="cat-table-col cat-col-count">Count</span>
+    </div>
+    <div 
+      *ngFor="let category of categories" 
+      class="cat-table-row" 
+      (click)="selectCategory(category)"
+      tabindex="0"
+      role="button"
+    >
+      <span class="cat-table-col cat-col-name">
+        <i class="fa fa-folder cat-folder-icon" aria-hidden="true"></i>
+        {{ category.description }}
+      </span>
+      <span class="cat-table-col cat-col-count">
+        <span class="cat-green-badge">
+          {{ equipmentCounts[category.description] }}
+        </span>
+      </span>
+    </div>
+  </div>
+</div>

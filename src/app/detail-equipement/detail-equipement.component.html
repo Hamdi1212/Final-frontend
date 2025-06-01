@@ -1,0 +1,50 @@
+<div *ngFor="let equipement of get_all_equipement">
+<div class="row mb-1 mr-0 custom-border">
+    <div  class="col-md-1 border-right p-1 text-center mb-1 mt-1">
+            <img src="assets/product.png" width="70px" height="70px">
+        </div>
+        <!--detail equipement-->
+    <div class="col-md-4 border-right mb-1 mt-1">
+        <div class="col">
+            <div class="row">
+                <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
+                <div class="col-md-9">Code : {{equipement.serialNumber}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
+                <div class="col-md-9">Nom :{{equipement.serialNumber}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
+                <div class="col-md-9">Etat :{{equipement.serialNumber}}</div> 
+            </div>
+            <div class="row" *ngIf="equipement.marque">
+                <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
+                <div class="col-md-9">Marque :{{equipement.marque}}</div> 
+            </div>
+            <div class="row">
+                <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
+                <div class="col-md-9">Category :{{equipement.category}}</div> 
+            </div>
+        </div>
+    </div>
+    <!--detail category-->
+    <!--boutons actions-->
+    <div class="col-md-3 mb-1 mt-1 no-underline">
+        <div class="row">
+            <div class="col-md-4">
+                <button type="button" class="btn btn-link color-aqua" (click)="delete(equipement.serialNumber)">
+                    <i class="bi bi-pencil-square"></i>&nbsp;Modifier</button>
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-link color-red">
+                    <i class="bi bi-trash3"></i>&nbsp;Supprimer</button>
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-link color-black">
+                    <i class="bi bi-card-list"></i>&nbsp;Details</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

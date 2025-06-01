@@ -1,0 +1,47 @@
+.no-underline button {
+    text-decoration: none;
+  }
+  /* Card Hover Effect */
+.equipment-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.equipment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.equipment-img {
+  width: 70px;
+  height: 70px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.equipment-card:hover .equipment-img {
+  transform: scale(1.1);
+}
+
+/* Button Hover Effects */
+.equipment-btn {
+  transition: all 0.3s ease-in-out;
+}
+
+.equipment-btn:hover {
+  transform: scale(1.1);
+}
+
+.equipment-btn.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.equipment-btn.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+.equipment-btn.btn-outline-dark:hover {
+  background-color: #343a40;
+  color: white;
+}

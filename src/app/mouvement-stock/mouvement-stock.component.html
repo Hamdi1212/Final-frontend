@@ -1,0 +1,64 @@
+<div class="container-fluid px-3 px-md-4 py-3">
+  <!-- Header Section -->
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4 gap-3">
+    <div>
+      <h1 class="h2 fw-bold text-primary mb-1">Mouvement de stock</h1>
+      <p class="text-muted mb-0">Historique des transactions d'équipements</p>
+    </div>
+    <div class="d-flex">
+      <app-button-action></app-button-action>
+    </div>
+  </div>
+
+  <!-- Transaction Grid -->
+  <div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+      <!-- Grid Header -->
+      <div class="grid-header row g-0 px-3 py-2 bg-light fw-medium small">
+        <div class="col-md-4">Numéro de série</div>
+        <div class="col-md-4">Date de transaction</div>
+        <div class="col-md-3">Statut</div>
+        <div class="col-md-1 text-end">Actions</div>
+      </div>
+
+      <!-- Grid Rows -->
+      <div class="grid-content" style="max-height: 500px; overflow-y: auto;">
+        <div *ngFor="let item of transactionsList" class="grid-row row g-0 px-3 py-2 border-bottom hover-bg">
+          <div class="col-md-4 d-flex align-items-center">
+            <i class="bi bi-pc-display-horizontal me-2 text-primary"></i>
+            {{item.serialNumber}}
+          </div>
+          <div class="col-md-4 d-flex align-items-center">
+            <i class="bi bi-calendar-date me-2 text-secondary"></i>
+            {{item.transactionDate}}
+          </div>
+          <div class="col-md-3 d-flex align-items-center">
+            <span [class]="'badge ' + 
+                (item.status === 'New' ? 'bg-success' : 
+                 item.status === 'Used' ? 'bg-warning text-dark' : 'bg-secondary')">
+              {{item.status}}
+            </span>
+          </div>
+          <div class="col-md-1 d-flex align-items-center justify-content-end">
+            <button class="btn btn-sm btn-outline-primary me-1">
+              <i class="bi bi-eye"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-secondary">
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+          </div>
+        </div>
+        <div *ngIf="transactionsList.length === 0" class="text-center py-5 text-muted">
+          <i class="bi bi-inbox fs-1"></i>
+          <p class="mt-2 mb-0">Aucune transaction trouvée</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="d-flex justify-content-center mt-3">
+    <app-pagination></app-pagination>
+  </div>
+</div>
+

@@ -1,0 +1,29 @@
+<div class="app-container">
+  <!-- Main layout container -->
+  <div class="row app-layout no-gutters">
+    <!-- Sidebar -->
+    <div class="col-md-2 sidebar-container">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <h4 class="sidebar-title">Gestion de Stock</h4>
+        </div>
+        <div class="sidebar-menu">
+          <app-menu></app-menu>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content area -->
+    <div class="col-md-10 main-content-container">
+      <!-- Header -->
+      <div class="app-header">
+        <app-header></app-header>
+      </div>
+
+      <!-- Page content -->
+      <div class="app-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

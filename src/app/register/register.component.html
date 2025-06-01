@@ -1,0 +1,67 @@
+<div class="container my-container">
+  <div class="card row justify-content-md-center">
+    <div class="card-body">
+      <form [formGroup]="signupform">
+        <div class="row">
+          <div class="col-md-6 mt-5 border-right">
+            <img src="assets/register.png" alt="Login Image" class="img-fluid" width="350" height="200">
+          </div>
+          <div class="col-md-6">
+            <div class="card-header text-center mb-4">
+              <h3>Inscription</h3>
+            </div>
+            <div class="mb-3 input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="bi bi-person"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Name" formControlName="Name" >
+            </div>
+            <div class="mb-3 input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="bi bi-person"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName" >
+            </div>
+            <div class="mb-3 input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="bi bi-person"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="User Name" formControlName="UserName">
+            </div>
+            <div class="mb-3 input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+              </div>
+              <input type="email" class="form-control" placeholder="Email" formControlName="Email" >
+            </div>
+            <div class="mb-3 input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="bi bi-phone"></i></span>
+              </div>
+              <input type="tel" class="form-control" placeholder="Phone Number" formControlName="phonenumber" >
+            </div>
+            <div class="mb-3 input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+              </div>
+              <input type="password" class="form-control" placeholder="Password" formControlName="Password" >
+            </div>
+             <div class="mb-3 input-group">
+              <div class="input-group-prepend"> 
+                <select class="form-control form-select" formControlName="Role">
+                  <option value="" disabled selected>Role :</option>
+                  <option value="Teck">technicien</option>
+                  <option value="RH">ressoures humaine</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3 d-flex justify-content-between ">
+              <a [routerLink]="['/login']" class="btn btn-link">Se connecter</a>
+              <button (click)="onsubmit()" type="submit" class="btn btn-primary">S'inscrire</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

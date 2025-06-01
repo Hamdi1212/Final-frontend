@@ -1,0 +1,32 @@
+<div class="table-users">
+   <div class="header">Users</div>
+   
+   <table cellspacing="0">
+      <tr>
+         <th>Picture</th>
+         <th>matricule</th>
+         <th>Name</th>
+         <th>lastName</th>
+         <th>Email</th>
+         <th>Phone</th>
+         <th>Role</th>
+         <th>BirthDate</th>
+         <td>Action</td>
+      </tr>
+
+      <tr *ngFor="let emp of employeesList">
+         <td><img src="https://i.picsum.photos/id/1005/100/100.jpg" alt="" /></td>
+         <td>{{emp.matricule}}</td>
+         <td>{{emp.name}}</td>
+         <td>{{emp.lastName}}</td>
+         <td>{{emp.email}}</td>
+         <td>{{emp.phonenumber}}</td>
+         <td>{{emp.role}}</td>
+         <td>{{emp.BirthDate}}</td>
+         <td><div class="col-md-4">
+            <button type="button" class="btn btn-link color-blue" (click)="deleteUser(emp.matricule)">
+                <i class="bi bi-trash3"></i>&nbsp;Supprimer</button>
+        </div></td>
+      </tr>
+   </table>
+</div>

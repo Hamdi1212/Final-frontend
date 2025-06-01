@@ -1,0 +1,88 @@
+.cat-table-wrapper {
+  max-width: 540px;
+  margin: 40px auto 0 auto;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 8px rgba(60, 60, 60, 0.07);
+  padding: 24px 18px 18px 18px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.cat-table-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: #28b1de;
+  letter-spacing: 0.1px;
+}
+
+.cat-table {
+  width: 100%;
+}
+
+.cat-table-header {
+  display: flex;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #444;
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 8px;
+  margin-bottom: 6px;
+}
+
+.cat-table-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background 0.12s;
+  min-height: 44px;
+}
+
+.cat-table-row:last-child {
+  border-bottom: none;
+}
+
+.cat-table-row:hover,
+.cat-table-row:focus {
+  background: #f5faf5;
+  outline: none;
+}
+
+.cat-table-col {
+  display: flex;
+  align-items: center;
+  padding: 9px 0;
+}
+
+.cat-col-name {
+  flex: 1;
+  font-size: 1rem;
+  color: #212529;
+  gap: 7px;
+}
+
+.cat-col-count {
+  width: 65px;
+  justify-content: flex-end;
+}
+
+.cat-green-badge {
+  display: inline-block;
+  background: #228B22;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.70rem;
+  border-radius: 12px;
+  padding: 4px 14px;
+  min-width: 28px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 2px rgba(25, 195, 125, 0.1);
+}
+
+.cat-folder-icon {
+  color: #28b1de;
+  margin-right: 7px;
+  font-size: 1.12rem;
+}

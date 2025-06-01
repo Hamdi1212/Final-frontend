@@ -1,0 +1,47 @@
+<div class="container">
+<div class="row">
+<div class="col-2">
+  <ngx-charts-pie-chart
+  [view]="view"
+  [scheme]="colorScheme1"
+  [results]="single"
+  [gradient]="gradient"
+  [legend]="showLegend"
+  [legendPosition]="legendPosition"
+  [labels]="showLabels"
+  [doughnut]="isDoughnut"
+  >
+</ngx-charts-pie-chart>
+</div>
+<div class="col-3"></div>
+<div class="col-2">
+    <ngx-charts-pie-chart
+    [view]="view"
+    [scheme]="colorScheme1"
+    [results]="single1"
+    [gradient]="gradient"
+    [legend]="showLegend"
+    [legendPosition]="legendPosition"
+    [labels]="showLabels"
+    [doughnut]="isDoughnut"
+    >
+  </ngx-charts-pie-chart>
+</div>
+<div class="row mt-4"></div>
+<div class="row mt-5">
+<ngx-charts-bar-vertical
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="single2"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel">
+</ngx-charts-bar-vertical>
+</div>
+
+</div>

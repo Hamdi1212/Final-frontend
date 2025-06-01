@@ -1,0 +1,193 @@
+<div class="flex flex-wrap formbold--mx-3">
+    <app-file-upload formControlName="image"></app-file-upload>
+  </div>
+<div class="formbold-main-wrapper">
+    <!-- Author: FormBold Team -->
+    <!-- Learn More: https://formbold.com -->
+    <div class="formbold-form-wrapper">
+      <form action="https://formbold.com/s/FORM_ID"  [formGroup]="signupform" (ngSubmit)="onsubmit()">
+        <div class="formbold-mb-5">
+          <label for="name" class="formbold-form-label"> First Name </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="First Name"
+            class="formbold-form-input"
+            formControlName = "FirstName"
+          />
+        </div>
+        <div class="formbold-mb-5">
+            <label for="name" class="formbold-form-label"> Last Name </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Last Name"
+              class="formbold-form-input"
+              formControlName = "LastName"
+            />
+          </div>
+        <div class="formbold-mb-5">
+          <label for="phone" class="formbold-form-label"> Phone Number </label>
+          <input
+            type="text"
+            name="phone"
+            id="phone"
+            placeholder="Enter your phone number"
+            class="formbold-form-input"
+            formControlName="Phone"
+          />
+        </div>
+        <div class="formbold-mb-5">
+          <label for="email" class="formbold-form-label"> Email Address </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
+            class="formbold-form-input"
+            formControlName="Email"
+          />
+        </div>
+        <div class="formbold-mb-5">
+            <label for="name" class="formbold-form-label"> Department</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Department"
+              class="formbold-form-input"
+              formControlName = "Departement"
+            />
+          </div>
+          <div class="formbold-mb-5">
+            <label for="name" class="formbold-form-label"> Position</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Position"
+              class="formbold-form-input"
+              formControlName = "Position"
+            />
+          </div>
+        <div class="flex flex-wrap formbold--mx-3">
+          <div class="w-full sm:w-half formbold-px-3">
+            <div class="formbold-mb-5 w-full">
+              <label for="date" class="formbold-form-label"> Date </label>
+              <input
+                type="date"
+                name="date"
+                id="date"
+                class="formbold-form-input"
+                formControlName="HireDate"
+              />
+            </div>
+          </div>
+          <div class="formbold-mb-5">
+            <label for="name" class="formbold-form-label"> Salary</label>
+            <input
+              type="number"
+              name="name"
+              id="name"
+              placeholder="Salary"
+              class="formbold-form-input"
+              formControlName = "Salary"
+            />
+          </div>
+        </div>
+  
+        <div class="formbold-mb-5 formbold-pt-3">
+          <label class="formbold-form-label formbold-form-label-2">
+            Address Details
+          </label>
+          <div class="flex flex-wrap formbold--mx-3">
+            <div class="w-full sm:w-half formbold-px-3">
+              <div class="formbold-mb-5">
+                <input
+                  type="text"
+                  name="area"
+                  id="area"
+                  placeholder="Address"
+                  class="formbold-form-input"
+                  formControlName="Address"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="formbold-mb-5 formbold-pt-3">
+            <label class="formbold-form-label formbold-form-label-2">
+          <div class="formbold-mb-5 formbold-pt-3">
+          <label class="formbold-form-label formbold-form-label-2">
+           Employee Status
+          </label>
+          <div class="flex flex-wrap formbold--mx-3">
+            <div class="w-full sm:w-half formbold-px-3">
+              <div class="formbold-mb-5">
+                <input
+                  type="text"
+                  name="area"
+                  id="area"
+                  placeholder="EmployeeStatus"
+                  class="formbold-form-input"
+                  formControlName="EmployeeStatus"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        </label>
+        </div> 
+        <div class="formbold-mb-5 formbold-pt-3">
+            <label class="formbold-form-label formbold-form-label-2">
+          <div class="formbold-mb-5 formbold-pt-3">
+          <label class="formbold-form-label formbold-form-label-2">
+            Skills
+          </label>
+          <div class="flex flex-wrap formbold--mx-3">
+            <div class="w-full sm:w-half formbold-px-3">
+              <div class="formbold-mb-5">
+                <input
+                  type="text"
+                  name="area"
+                  id="area"
+                  placeholder="Skills"
+                  class="formbold-form-input"
+                  formControlName="Skills"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        </label>
+        </div>
+        <div class="formbold-mb-5 formbold-pt-3">
+            <label class="formbold-form-label formbold-form-label-2">
+          <div class="formbold-mb-5 formbold-pt-3">
+          <label class="formbold-form-label formbold-form-label-2">
+            Certification
+          </label>
+          <div class="flex flex-wrap formbold--mx-3">
+            <div class="w-full sm:w-half formbold-px-3">
+              <div class="formbold-mb-5">
+                <input
+                  type="text"
+                  name="area"
+                  id="area"
+                  placeholder="Certification"
+                  class="formbold-form-input"
+                  formControlName="Certification"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        </label>
+        </div>
+          <button class="formbold-btn">Add Worker</button>
+         
+      </form>
+    </div>
+  </div>

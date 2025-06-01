@@ -1,0 +1,23 @@
+<div class="menu-container">
+  <div class="menu-accordion">
+    <div class="menu-item" *ngFor="let menu of menuProperties">
+      <div class="menu-header" (click)="toggleMenu(menu)">
+        <div class="menu-title">
+          <i class="{{menu.icon}}"></i>
+          <span>{{menu.titre}}</span>
+        </div>
+        <i class="bi bi-chevron-down menu-arrow" [class.rotated]="menu.isExpanded"></i>
+      </div>
+      
+      <div class="submenu-container" *ngIf="menu.sousMenu && menu.sousMenu.length > 0" [class.expanded]="menu.isExpanded">
+        <a *ngFor="let sub of menu.sousMenu" 
+           class="submenu-item" 
+           [class.active]="isActive(sub.url)"
+           (click)="navigate(sub.url)">
+          <i class="{{sub.icon}}"></i>
+          <span>{{sub.titre}}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

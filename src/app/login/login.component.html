@@ -1,0 +1,30 @@
+<div class="container my-container">
+  <div class="card row justify-content-md-center">
+    <div class="card-header text-center">
+      <h3>se connecter</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6 border-right  ">
+          <img src="assets/login.png" alt="Login Image" class="img-fluid" width="250x" height="200px">
+        </div>
+        <div class="col-md-6">
+          <form [formGroup]="loginForm">
+            <div class="mt-5">
+              <div class="mb-3">
+                <input formControlName="name" type="text" class="form-control" placeholder="name">
+              </div>
+              <div class="mb-3">
+                <input formControlName="password" type="password" class="form-control" placeholder="password">
+              </div>
+              <div class="mb-3 d-flex justify-content-between ">
+                <a [routerLink]="['/register']" class="btn btn-link">s'inscrire</a>
+                <button (click)="onlogin()" type="button" class="btn btn-primary">se connecter</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

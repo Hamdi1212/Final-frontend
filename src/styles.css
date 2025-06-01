@@ -1,0 +1,46 @@
+body{
+    background-color: #eff2f5 !important;
+}
+.background-grey{
+    background-color: #eff2f5 !important;
+}
+.border-non{
+    border: none !important;
+}
+.min-height-80{
+    min-height: 80px;
+}
+.border-right{
+    border-right: 2px solid #d7dce1;
+}
+.custom-border{
+    border: solid #d7dce1;
+    border-radius: 5px;
+}
+.blue-color{
+    color: #037bfe;
+}
+.color-red{
+    color: red;
+}
+.color-black{
+    color:black;
+}
+.color-aqua{
+    color: LimeGreen;
+}
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
