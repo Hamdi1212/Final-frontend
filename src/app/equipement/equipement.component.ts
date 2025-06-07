@@ -14,6 +14,7 @@ export class EquipementComponent implements OnInit {
   equipementList: any[] = [];
   filteredEquipment: any[] = [];
   searchTerm: string = '';
+  noEquipementMessage: string = '';
 
   constructor(private router: Router, private auth: AuthService) {
     const navigation = this.router.getCurrentNavigation();
@@ -21,11 +22,23 @@ export class EquipementComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.selectedCategory?.description) {
-      this.auth.getEquipementByCategoryCode(this.selectedCategory.description).subscribe(x => {
-        this.equipementList = x;
-        this.filteredEquipment = [...this.equipementList];
-      });
+    // Use code, not description, for category filtering
+    if (this.selectedCategory?.code) {
+      this.auth.getEquipementByCategoryCode(this.selectedCategory.code).subscribe(
+        x => {
+          // Defensive: ensure x is always an array
+          this.equipementList = Array.isArray(x) ? x : [];
+          this.filteredEquipment = [...this.equipementList];
+          this.noEquipementMessage = this.equipementList.length === 0
+            ? "No equipment found for the selected category."
+            : '';
+        },
+        error => {
+          this.equipementList = [];
+          this.filteredEquipment = [];
+          this.noEquipementMessage = "An error occurred while fetching equipment.";
+        }
+      );
     }
   }
 

@@ -1,0 +1,190 @@
+/* Grid styling */
+.grid-header {
+  font-size: 0.85rem;
+  color: #6c757d;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.grid-row {
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.hover-bg:hover {
+  background-color: #f8f9fa;
+  transform: translateX(2px);
+}
+
+/* Lignes and Postes styling */
+.lignes-postes-container {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.ligne-item {
+  border-left: 3px solid #e9ecef;
+  padding-left: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.ligne-item:hover {
+  border-left-color: #007bff;
+}
+
+.ligne-header {
+  background-color: #f8f9fa;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin-left: -0.5rem;
+}
+
+.postes-list {
+  background-color: #fdfdfd;
+  border-radius: 4px;
+  padding: 0.25rem;
+}
+
+.poste-item {
+  padding: 0.125rem 0.25rem;
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.poste-item:hover {
+  background-color: #e9ecef;
+}
+
+/* Status badges */
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+  font-size: 0.75em;
+}
+
+/* Custom scrollbar */
+.grid-content::-webkit-scrollbar,
+.lignes-postes-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.grid-content::-webkit-scrollbar-track,
+.lignes-postes-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.grid-content::-webkit-scrollbar-thumb,
+.lignes-postes-container::-webkit-scrollbar-thumb {
+  background: #d1d1d1;
+  border-radius: 3px;
+}
+
+.grid-content::-webkit-scrollbar-thumb:hover,
+.lignes-postes-container::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+/* Dropdown styling */
+.dropdown-menu {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid-header {
+    display: none;
+  }
+  
+  .grid-row {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    flex-direction: column;
+  }
+  
+  .grid-row > div {
+    margin-bottom: 0.75rem;
+    width: 100%;
+  }
+  
+  .grid-row > div:before {
+    content: attr(data-label);
+    font-weight: 500;
+    color: #6c757d;
+    margin-right: 0.5rem;
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+  
+  .col-md-4:before {
+    content: "PROJET";
+  }
+  
+  .col-md-7:before {
+    content: "LIGNES ET POSTES";
+  }
+  
+  .col-md-1:before {
+    content: "ACTIONS";
+  }
+  
+  .ligne-item {
+    margin-left: 0;
+    border-left: none;
+    border-top: 2px solid #e9ecef;
+    padding-top: 0.5rem;
+    padding-left: 0;
+  }
+  
+  .ligne-header {
+    margin-left: 0;
+  }
+  
+  .postes-list {
+    margin-left: 0;
+  }
+}
+
+/* Animation for expanding/collapsing */
+.ligne-item {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Print styles */
+@media print {
+  .grid-content {
+    max-height: none;
+    overflow: visible;
+  }
+  
+  .hover-bg:hover {
+    background-color: transparent;
+    transform: none;
+  }
+  
+  .dropdown {
+    display: none;
+  }
+}

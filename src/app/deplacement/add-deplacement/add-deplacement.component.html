@@ -1,0 +1,51 @@
+<div class="container mt-4">
+  <h2>Ajouter un Déplacement</h2>
+  <div *ngIf="message" class="alert alert-info">{{ message }}</div>
+
+  <form [formGroup]="projetForm" (ngSubmit)="addProjet()" class="row g-2 align-items-end mb-3">
+    <div class="col-md-3">
+      <input formControlName="ProjetNom" class="form-control" placeholder="Nom du projet">
+    </div>
+    <div class="col-md-3">
+      <input formControlName="LigneNom" class="form-control" placeholder="Nom de la ligne">
+    </div>
+    <div class="col-md-3">
+      <input formControlName="PosteNom" class="form-control" placeholder="Nom du poste">
+    </div>
+    <div class="col-md-3">
+      <button type="submit" class="btn btn-success" [disabled]="!projetForm.valid">Ajouter Projet complet</button>
+    </div>
+  </form>
+
+  <hr>
+
+  <h4>Ajouter une Ligne</h4>
+  <form [formGroup]="ligneForm" (ngSubmit)="addLigne()" class="row g-2 align-items-end mb-3">
+    <div class="col-md-4">
+      <input formControlName="LigneNom" class="form-control" placeholder="Nom de la ligne">
+    </div>
+    <div class="col-md-4">
+      <input formControlName="ProjectId" class="form-control" placeholder="ID du projet">
+    </div>
+    <div class="col-md-4">
+      <button type="submit" class="btn btn-success" [disabled]="!ligneForm.valid">Ajouter Ligne</button>
+    </div>
+  </form>
+
+  <hr>
+
+  <h4>Ajouter un Poste</h4>
+  <form [formGroup]="posteForm" (ngSubmit)="addPoste()" class="row g-2 align-items-end mb-3">
+    <div class="col-md-4">
+      <input formControlName="PosteNom" class="form-control" placeholder="Nom du poste">
+    </div>
+    <div class="col-md-4">
+      <input formControlName="LigneId" class="form-control" placeholder="ID de la ligne">
+    </div>
+    <div class="col-md-4">
+      <button type="submit" class="btn btn-success" [disabled]="!posteForm.valid">Ajouter Poste</button>
+    </div>
+  </form>
+
+  <button class="btn btn-link mt-2" routerLink="../">Retour à la liste</button>
+</div>

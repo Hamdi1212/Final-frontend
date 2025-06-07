@@ -32,6 +32,11 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { TokenInterceptorInterceptor } from './interceptors/token-interceptor.interceptor';
 import { NewPostComponent } from './Post/new-post/new-post.component';
 import { CategoriesListComponent } from './categories-list/categories-list.component';
+import { DeplacementComponent } from './deplacement/deplacement.component';
+import { ListDeplacementComponent } from './deplacement/list-deplacement/list-deplacement.component';
+import { AddDeplacementComponent } from './deplacement/add-deplacement/add-deplacement.component';
+import { ListStoreComponent } from './deplacement/list-store/list-store.component';
+import { AddStoreComponent } from './deplacement/add-store/add-store.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +62,12 @@ import { CategoriesListComponent } from './categories-list/categories-list.compo
     EmployeeSettingComponent,
     AppFileUploadComponent,
     NewPostComponent,
-    CategoriesListComponent
+    CategoriesListComponent,
+    DeplacementComponent,
+    ListDeplacementComponent,
+    AddDeplacementComponent,
+    ListStoreComponent,
+    AddStoreComponent
   ],
   imports: [
     BrowserModule,

@@ -16,11 +16,15 @@ import { LoginGuardGuard } from './guards/login-guard.guard';
 import { NewPostComponent } from './Post/new-post/new-post.component';
 import { CategoriesListComponent } from './categories-list/categories-list.component';
 import { RoleGuard } from './guards/role.guard';
+import { DeplacementComponent } from './deplacement/deplacement.component'; // <-- ADD THIS LINE
+import { ListDeplacementComponent } from './deplacement/list-deplacement/list-deplacement.component';
+import { AddDeplacementComponent } from './deplacement/add-deplacement/add-deplacement.component';
+import { ListStoreComponent } from './deplacement/list-store/list-store.component';
+import { AddStoreComponent } from './deplacement/add-store/add-store.component';
+
 const routes: Routes = [
   {
-
     path:'login',
-    
     component: LoginComponent
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -31,7 +35,6 @@ const routes: Routes = [
   },{
     path:'',
     component:DashboardComponent,
-   // canActivate : [LoginGuardGuard],
     children:[
       {
         path:'statistiques',
@@ -70,11 +73,19 @@ const routes: Routes = [
       {
         path:'Post',
         component : NewPostComponent
-      }
-
+      },
+        {
+      path: 'deplacement',
+      component: DeplacementComponent,
+      children: [
+        { path: '', component: ListDeplacementComponent }, // default listing
+        { path: 'add-deplacement', component: AddDeplacementComponent },
+        { path: 'list-store', component: ListStoreComponent },
+        { path: 'add-store', component: AddStoreComponent }
+      ]
+    }
     ]
   }
-
 ];
 
 @NgModule({

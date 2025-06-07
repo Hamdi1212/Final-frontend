@@ -23,6 +23,8 @@ loginForm!:FormGroup;
       password:['',Validators.required]
     })
   }
+  // Add this to your component class
+showPassword = false;
   onlogin(){
     if (this.loginForm.valid) {
 

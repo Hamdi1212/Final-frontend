@@ -1,26 +1,106 @@
-<div class="container my-container">
-  <div class="card row justify-content-md-center">
-    <div class="card-header text-center">
-      <h3>se connecter</h3>
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-md-6 border-right  ">
-          <img src="assets/login.png" alt="Login Image" class="img-fluid" width="250x" height="200px">
+<div class="login-container">
+  <div class="card border-0 shadow-lg">
+    <div class="row g-0">
+      <!-- Left side - Image -->
+      <div class="col-lg-6 d-none d-lg-block login-image-container">
+        <div class="login-image-overlay"></div>
+        <img src="assets/login.png" alt="Login" class="login-image">
+        <div class="login-image-content">
+          <div class="logo-container mb-4">
+            <i class="bi bi-building fs-1 text-white"></i>
+          </div>
+          <h2 class="text-white mb-3">Bienvenue</h2>
+          <p class="text-white-50 mb-4">Connectez-vous pour accéder à votre espace de gestion</p>
         </div>
-        <div class="col-md-6">
+      </div>
+      
+      <!-- Right side - Form -->
+      <div class="col-lg-6">
+        <div class="card-body p-4 p-lg-5">
+          <div class="d-block d-lg-none text-center mb-4">
+            <i class="bi bi-building fs-1 text-primary"></i>
+            <h4 class="mt-2">Bienvenue</h4>
+          </div>
+          
+          <h3 class="fw-bold mb-4 text-center text-lg-start">Se connecter</h3>
+          
           <form [formGroup]="loginForm">
-            <div class="mt-5">
-              <div class="mb-3">
-                <input formControlName="name" type="text" class="form-control" placeholder="name">
+            <div class="mb-4">
+              <label for="name" class="form-label small text-muted">Nom d'utilisateur</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0">
+                  <i class="bi bi-person text-muted"></i>
+                </span>
+                <input 
+                  id="name"
+                  formControlName="name" 
+                  type="text" 
+                  class="form-control border-start-0 ps-0" 
+                  placeholder="Entrez votre nom d'utilisateur"
+                  [ngClass]="{'is-invalid': loginForm.get('name')?.invalid && loginForm.get('name')?.touched}"
+                >
               </div>
-              <div class="mb-3">
-                <input formControlName="password" type="password" class="form-control" placeholder="password">
+              <div class="invalid-feedback" *ngIf="loginForm.get('name')?.invalid && loginForm.get('name')?.touched">
+                Veuillez entrer votre nom d'utilisateur
               </div>
-              <div class="mb-3 d-flex justify-content-between ">
-                <a [routerLink]="['/register']" class="btn btn-link">s'inscrire</a>
-                <button (click)="onlogin()" type="button" class="btn btn-primary">se connecter</button>
+            </div>
+            
+            <div class="mb-4">
+              <div class="d-flex justify-content-between">
+                <label for="password" class="form-label small text-muted">Mot de passe</label>
+                <a href="#" class="small text-decoration-none">Mot de passe oublié?</a>
               </div>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0">
+                  <i class="bi bi-lock text-muted"></i>
+                </span>
+                <input 
+                  id="password"
+                  formControlName="password" 
+                  [type]="showPassword ? 'text' : 'password'" 
+                  class="form-control border-start-0 border-end-0 ps-0" 
+                  placeholder="Entrez votre mot de passe"
+                  [ngClass]="{'is-invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched}"
+                >
+                <button 
+                  class="input-group-text bg-light border-start-0" 
+                  type="button"
+                  (click)="showPassword = !showPassword"
+                >
+                  <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                </button>
+              </div>
+              <div class="invalid-feedback" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                Veuillez entrer votre mot de passe
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rememberMe">
+                <label class="form-check-label small" for="rememberMe">
+                  Se souvenir de moi
+                </label>
+              </div>
+            </div>
+            
+            <div class="d-grid gap-2 mb-4">
+              <button 
+                (click)="onlogin()" 
+                type="button" 
+                class="btn btn-primary py-2"
+                [disabled]="loginForm.invalid"
+              >
+                <i class="bi bi-box-arrow-in-right me-2"></i>
+                Se connecter
+              </button>
+            </div>
+            
+            <div class="text-center">
+              <p class="mb-0 text-muted">Vous n'avez pas de compte?</p>
+              <a [routerLink]="['/register']" class="btn btn-link">
+                S'inscrire maintenant
+              </a>
             </div>
           </form>
         </div>

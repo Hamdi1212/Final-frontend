@@ -1,0 +1,261 @@
+/* Grid styling */
+.grid-header {
+  font-size: 0.85rem;
+  color: #6c757d;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.grid-row {
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.hover-bg:hover {
+  background-color: #f8f9fa;
+  transform: translateX(2px);
+}
+
+/* Store icon styling */
+.store-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Serial number styling */
+.font-monospace {
+  font-family: 'Courier New', monospace;
+  background-color: #f8f9fa;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #e9ecef;
+  font-size: 0.875rem;
+}
+
+/* Search input styling */
+.input-group .form-control:focus {
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.input-group-text {
+  background-color: #f8f9fa;
+  border-color: #ced4da;
+}
+
+/* Status badges */
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+  font-size: 0.75em;
+}
+
+.badge.bg-success {
+  background-color: #198754 !important;
+}
+
+.badge.bg-warning {
+  background-color: #ffc107 !important;
+  color: #000 !important;
+}
+
+.badge.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+/* Custom scrollbar */
+.grid-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.grid-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.grid-content::-webkit-scrollbar-thumb {
+  background: #d1d1d1;
+  border-radius: 4px;
+}
+
+.grid-content::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+/* Dropdown styling */
+.dropdown-menu {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  min-width: 160px;
+}
+
+.dropdown-item {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  transform: translateX(2px);
+}
+
+.dropdown-item.text-danger:hover {
+  background-color: #f8d7da;
+  color: #721c24 !important;
+}
+
+.dropdown-item.text-warning:hover {
+  background-color: #fff3cd;
+  color: #856404 !important;
+}
+
+/* Checkbox styling */
+.form-check-input:checked {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+/* Button hover effects */
+.btn-link:hover {
+  text-decoration: none;
+}
+
+.btn-link i {
+  transition: color 0.2s ease;
+}
+
+.btn-link:hover i {
+  color: #0d6efd !important;
+}
+
+/* Copy button animation */
+@keyframes copySuccess {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.copy-success {
+  animation: copySuccess 0.3s ease;
+  color: #198754 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid-header {
+    display: none;
+  }
+  
+  .grid-row {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    flex-direction: column;
+  }
+  
+  .grid-row > div {
+    margin-bottom: 0.75rem;
+    width: 100%;
+  }
+  
+  .grid-row > div:before {
+    content: attr(data-label);
+    font-weight: 500;
+    color: #6c757d;
+    margin-right: 0.5rem;
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+  
+  .col-md-1:first-child:before {
+    content: "SÉLECTION";
+  }
+  
+  .col-md-5:before {
+    content: "MAGASIN";
+  }
+  
+  .col-md-4:before {
+    content: "NUMÉRO DE SÉRIE";
+  }
+  
+  .col-md-1:nth-child(4):before {
+    content: "STATUT";
+  }
+  
+  .col-md-1:last-child:before {
+    content: "ACTIONS";
+  }
+  
+  .store-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .font-monospace {
+    font-size: 0.8rem;
+  }
+  
+  /* Mobile search adjustments */
+  .container-fluid .row.g-3 > div {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .grid-content {
+    max-height: none;
+    overflow: visible;
+  }
+  
+  .hover-bg:hover {
+    background-color: transparent;
+    transform: none;
+  }
+  
+  .dropdown,
+  .form-check-input,
+  .btn {
+    display: none;
+  }
+}
+
+/* Loading state */
+.loading-row {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Focus states for accessibility */
+.btn:focus,
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s ease;
+}
+
+button, .btn {
+  transition: all 0.3s ease;
+}

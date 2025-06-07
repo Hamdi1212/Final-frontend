@@ -1,0 +1,145 @@
+<div class="container-fluid px-3 px-md-4 py-3">
+  <!-- Header Section -->
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4 gap-3">
+    <div>
+      <h1 class="h2 fw-bold text-primary mb-1">Liste des Magasins</h1>
+      <p class="text-muted mb-0">Gestion des magasins et leurs numéros de série</p>
+    </div>
+    <div class="d-flex gap-2">
+      <button class="btn btn-outline-secondary">
+        <i class="bi bi-funnel me-2"></i>
+        Filtrer
+      </button>
+      <button class="btn btn-primary" [routerLink]="['/deplacement/add-store']">
+        <i class="bi bi-plus-circle me-2"></i>
+        Ajouter un Magasin
+      </button>
+    </div>
+  </div>
+
+  <!-- Search and Filter Section -->
+  <div class="card border-0 shadow-sm mb-3">
+    <div class="card-body py-2">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-6">
+          <div class="input-group">
+            <span class="input-group-text bg-light border-end-0">
+              <i class="bi bi-search text-muted"></i>
+            </span>
+            <input type="text" class="form-control border-start-0" placeholder="Rechercher un magasin...">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select">
+            <option selected>Tous les magasins</option>
+            <option value="1">Magasins actifs</option>
+            <option value="2">Magasins inactifs</option>
+          </select>
+        </div>
+        <div class="col-md-3 text-end">
+          <span class="text-muted small">{{ stores.length }} magasin(s) trouvé(s)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stores Grid -->
+  <div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+      <!-- Grid Header -->
+      <div class="grid-header row g-0 px-3 py-2 bg-light fw-medium small">
+        <div class="col-md-1 text-center">
+          <input type="checkbox" class="form-check-input">
+        </div>
+        <div class="col-md-5">Nom du Magasin</div>
+        <div class="col-md-4">Numéro de Série</div>
+        <div class="col-md-1 text-center">Statut</div>
+        <div class="col-md-1 text-end">Actions</div>
+      </div>
+
+      <!-- Grid Rows -->
+      <div class="grid-content" style="max-height: 500px; overflow-y: auto;">
+        <div *ngFor="let store of stores; let i = index" class="grid-row row g-0 px-3 py-3 border-bottom hover-bg">
+          <div class="col-md-1 d-flex align-items-center justify-content-center">
+            <input type="checkbox" class="form-check-input">
+          </div>
+          <div class="col-md-5 d-flex align-items-center">
+            <div class="store-icon me-3">
+              <i class="bi bi-shop fs-4 text-primary"></i>
+            </div>
+            <div>
+              <div class="fw-medium text-dark">{{ store.name }}</div>
+              <small class="text-muted">Magasin #{{ i + 1 }}</small>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex align-items-center">
+            <i class="bi bi-upc-scan me-2 text-secondary"></i>
+            <div>
+              <span class="font-monospace">{{ store.serialNumber }}</span>
+              <button class="btn btn-sm btn-link p-0 ms-2" title="Copier le numéro de série">
+                <i class="bi bi-clipboard text-muted"></i>
+              </button>
+            </div>
+          </div>
+          <div class="col-md-1 d-flex align-items-center justify-content-center">
+            <span class="badge bg-success">Actif</span>
+          </div>
+          <div class="col-md-1 d-flex align-items-center justify-content-end">
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                <i class="bi bi-three-dots-vertical"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Voir détails</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Modifier</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-files me-2"></i>Dupliquer</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item text-warning" href="#"><i class="bi bi-pause-circle me-2"></i>Désactiver</a></li>
+                <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Supprimer</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Empty state -->
+        <div *ngIf="stores.length === 0" class="text-center py-5 text-muted">
+          <i class="bi bi-shop-window fs-1"></i>
+          <p class="mt-2 mb-0">Aucun magasin trouvé</p>
+          <button class="btn btn-outline-primary mt-2" [routerLink]="['/deplacement/add-store']">
+            <i class="bi bi-plus-circle me-2"></i>
+            Créer votre premier magasin
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Actions -->
+  <div class="d-flex justify-content-between align-items-center mt-3">
+    <div class="d-flex gap-2">
+      <button class="btn btn-outline-secondary btn-sm" disabled>
+        <i class="bi bi-download me-2"></i>
+        Exporter
+      </button>
+      <button class="btn btn-outline-danger btn-sm" disabled>
+        <i class="bi bi-trash me-2"></i>
+        Supprimer sélectionnés
+      </button>
+    </div>
+    
+    <!-- Pagination -->
+    <nav aria-label="Page navigation">
+      <ul class="pagination pagination-sm mb-0">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">Précédent</a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Suivant</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

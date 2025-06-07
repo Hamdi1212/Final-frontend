@@ -105,7 +105,13 @@ export class MenuComponent implements OnInit {
                 titre: 'Categorie',
                 icon: 'bi bi-tags',
                 url: 'Categories'
+              },{
+          id: '24',
+          titre: 'Déplacement',
+          icon: 'bi bi-arrows-move',
+          url: 'deplacement'
               }
+
             ]
           }
         ];

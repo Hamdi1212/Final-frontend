@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <h2>Ajouter un Magasin</h2>
+  <form [formGroup]="storeForm" (ngSubmit)="addStore()" class="row g-2 align-items-end mb-3">
+    <div class="col-md-4">
+      <input formControlName="Name" class="form-control" placeholder="Nom du magasin">
+    </div>
+    <div class="col-md-4">
+      <input formControlName="SerialNumber" class="form-control" placeholder="Numéro de série">
+    </div>
+    <div class="col-md-4">
+      <button type="submit" class="btn btn-success" [disabled]="!storeForm.valid">Ajouter</button>
+    </div>
+  </form>
+  <div *ngIf="message" class="alert alert-info">{{ message }}</div>
+  <button class="btn btn-link mt-2" routerLink="../list-store">Retour à la liste des magasins</button>
+</div>

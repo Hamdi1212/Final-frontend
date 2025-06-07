@@ -28,6 +28,10 @@
            [(ngModel)]="searchTerm" (input)="filterEquipment()">
   </div>
 
+  <div *ngIf="noEquipementMessage" class="alert alert-warning" style="margin-bottom: 1rem;">
+    {{ noEquipementMessage }}
+  </div>
+
   <div class="equipment-grid">
     <div *ngFor="let item of filteredEquipment" class="equipment-card">
       <div class="card-header">

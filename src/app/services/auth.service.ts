@@ -13,6 +13,8 @@ export class AuthService {
   private TransactionUrl:string="https://localhost:44319/Transaction/";
   private CategorieUrl : string ="https://localhost:44319/api/Categories/categories";
   private EmployeeUrl : string ="https://localhost:44319/api/Users";
+  private moveUrl: string = 'https://localhost:44319/Move/';
+  private storeUrl: string = 'https://localhost:44319/Store/';
   constructor(private http : HttpClient) {
     this.Payload = this.decodeToken();
    }
@@ -150,7 +152,90 @@ export class AuthService {
       return res;
     }))
   }
-  // createUser()
+
+  // ----------- NEW APIs from MoveController ----------- //
+  // Projets
+  getProjets(): Observable<any> {
+    return this.http.get(this.moveUrl + 'projets');
+  }
+  getProjetById(id: number): Observable<any> {
+    return this.http.get(`${this.moveUrl}projets/${id}`);
+  }
+  createProjet(dto: any): Observable<any> {
+    return this.http.post(this.moveUrl + 'projets', dto);
+  }
+  deleteProjet(id: number): Observable<any> {
+    return this.http.delete(`${this.moveUrl}projets/${id}`);
+  }
+  deleteProjetByName(name: string): Observable<any> {
+    return this.http.delete(`${this.moveUrl}projets/byname/${name}`);
+  }
+
+  // Lignes
+  getLignes(): Observable<any> {
+    return this.http.get(this.moveUrl + 'lignes');
+  }
+  getLigneById(id: number): Observable<any> {
+    return this.http.get(`${this.moveUrl}lignes/${id}`);
+  }
+  createLigne(dto: any): Observable<any> {
+    return this.http.post(this.moveUrl + 'lignes', dto);
+  }
+  updateLigne(id: number, dto: any): Observable<any> {
+    return this.http.put(`${this.moveUrl}lignes/${id}`, dto);
+  }
+  deleteLigne(id: number): Observable<any> {
+    return this.http.delete(`${this.moveUrl}lignes/${id}`);
+  }
+  deleteLigneByName(name: string): Observable<any> {
+    return this.http.delete(`${this.moveUrl}lignes/byname/${name}`);
+  }
+
+  // Postes
+  getPostes(): Observable<any> {
+    return this.http.get(this.moveUrl + 'postes');
+  }
+  getPosteById(id: number): Observable<any> {
+    return this.http.get(`${this.moveUrl}postes/${id}`);
+  }
+  createPoste(dto: any): Observable<any> {
+    return this.http.post(this.moveUrl + 'postes', dto);
+  }
+  updatePoste(id: number, dto: any): Observable<any> {
+    return this.http.put(`${this.moveUrl}postes/${id}`, dto);
+  }
+  deletePoste(id: number): Observable<any> {
+    return this.http.delete(`${this.moveUrl}postes/${id}`);
+  }
+  deletePosteByName(name: string): Observable<any> {
+    return this.http.delete(`${this.moveUrl}postes/byname/${name}`);
+  }
+
+  // ----------- NEW APIs from StoreController ----------- //
+  createStore(dto: any): Observable<any> {
+    return this.http.post(this.storeUrl + 'storepost', dto);
+  }
+  getStores(): Observable<any> {
+    return this.http.get(this.storeUrl);
+  }
+  searchEquipement(description?: string, marque?: string, serialNumber?: string): Observable<any> {
+    let params: any = {};
+    if (description) params.description = description;
+    if (marque) params.marque = marque;
+    if (serialNumber) params.serialNumber = serialNumber;
+    return this.http.get(this.storeUrl + 'search-equipement', { params });
+  }
+
+  // ----------- NEW APIs from TransactionController ----------- //
+  getProductionZone(): Observable<any> {
+    return this.http.get(this.TransactionUrl + 'ProductionZone');
+  }
+  moveEquipement(dto: any): Observable<any> {
+    return this.http.post(this.TransactionUrl + 'MoveEquipement', dto);
+  }
+
+  // ----------- NEW API from HomeController ----------- //
+  initStores(): Observable<any> {
+    return this.http.post(this.baseUrl + 'init-stores', {});
+  }
 }
-
-

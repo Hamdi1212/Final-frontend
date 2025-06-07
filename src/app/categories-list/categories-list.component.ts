@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class CategoriesListComponent implements OnInit {
   categories: any[] = [];
-    equipmentCounts: { [description: string]: number } = {};
+  equipmentCounts: { [code: string]: number } = {};
 
   constructor(
     private service: AuthService,
@@ -18,19 +18,19 @@ export class CategoriesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getCategory().subscribe((data: any) => {
-      this.categories = data;
-          this.categories.forEach(category => {
-      this.service.getEquipementByCategoryCode(category.description).subscribe(
-        (equipments: any[]) => {
-          this.equipmentCounts[category.description] = Array.isArray(equipments) ? equipments.length : 0;
-        },
-        (error) => {
-          if (error.status === 404) {
-            this.equipmentCounts[category.description] = 0;
+      this.categories = Array.isArray(data) ? data : (data?.$values || []);
+      this.categories.forEach(category => {
+        this.service.getEquipementByCategoryCode(category.code).subscribe(
+          (equipments: any[]) => {
+            this.equipmentCounts[category.code] = Array.isArray(equipments) ? equipments.length : 0;
+          },
+          (error) => {
+            if (error.status === 404) {
+              this.equipmentCounts[category.code] = 0;
+            }
           }
-        }
-      );
-    });
+        );
+      });
     });
   }
 
@@ -38,6 +38,5 @@ export class CategoriesListComponent implements OnInit {
     this.router.navigate(['/equipementDetails'], {
       state: { selectedCategory: category },  // Passing data via navigation state
     });
-
   }
 }
