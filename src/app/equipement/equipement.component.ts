@@ -21,26 +21,29 @@ export class EquipementComponent implements OnInit {
     this.selectedCategory = navigation?.extras?.state?.['selectedCategory'];
   }
 
-  ngOnInit(): void {
-    // Use code, not description, for category filtering
-    if (this.selectedCategory?.code) {
-      this.auth.getEquipementByCategoryCode(this.selectedCategory.code).subscribe(
-        x => {
-          // Defensive: ensure x is always an array
-          this.equipementList = Array.isArray(x) ? x : [];
-          this.filteredEquipment = [...this.equipementList];
-          this.noEquipementMessage = this.equipementList.length === 0
-            ? "No equipment found for the selected category."
-            : '';
-        },
-        error => {
-          this.equipementList = [];
-          this.filteredEquipment = [];
-          this.noEquipementMessage = "An error occurred while fetching equipment.";
-        }
-      );
-    }
+ngOnInit(): void {
+  console.log('Selected category:', this.selectedCategory);
+
+  if (this.selectedCategory?.code) {
+    this.auth.getEquipementByCategoryCode(this.selectedCategory.code).subscribe(
+      x => {
+        // Extract array from $values if response is wrapped
+        const equipArray = Array.isArray(x) ? x : (x?.$values ?? []);
+        console.log('Equipement fetched (final array):', equipArray);
+        this.equipementList = equipArray;
+        this.filteredEquipment = [...this.equipementList];
+        this.noEquipementMessage = this.equipementList.length === 0
+          ? "No equipment found for the selected category."
+          : '';
+      },
+      error => {
+        this.equipementList = [];
+        this.filteredEquipment = [];
+        this.noEquipementMessage = "An error occurred while fetching equipment.";
+      }
+    );
   }
+}
 
   addEquipment() {
     this.router.navigate(['nouvel-equipement']);

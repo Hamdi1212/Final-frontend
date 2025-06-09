@@ -32,4 +32,9 @@ export class CategorieComponent implements OnInit {
       this.listCategory = data?.$values || [];
     });
   }
+
+  goToEquipement(category: any) {
+    // Pass the whole category object (must have .code property, e.g., 'pom47')
+    this.router.navigate(['equipement'], { state: { selectedCategory: category } });
+  }
 }

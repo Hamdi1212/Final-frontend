@@ -24,19 +24,26 @@
 
     <!-- Category Cards -->
     <div *ngFor="let category of listCategory" class="col-md-6 col-lg-4">
-      <div class="card border-0 shadow-sm rounded-lg h-100">
+      <div 
+        class="card border-0 shadow-sm rounded-lg h-100 category-card-hover"
+        style="cursor:pointer"
+        (click)="goToEquipement(category)"
+        tabindex="0"
+        role="button"
+        title="Voir les équipements de cette catégorie"
+      >
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-start mb-3">
             <span class="badge bg-primary-light text-primary rounded-pill fs-6">
               {{ category.code }}
             </span>
             <div class="dropdown">
-              <button class="btn btn-sm btn-link text-muted" type="button" data-bs-toggle="dropdown">
+              <button class="btn btn-sm btn-link text-muted" type="button" data-bs-toggle="dropdown" (click)="$event.stopPropagation()">
                 <i class="bi bi-three-dots-vertical"></i>
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Modifier</a></li>
-                <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Supprimer</a></li>
+                <li><a class="dropdown-item" href="#" (click)="$event.stopPropagation()"><i class="bi bi-pencil me-2"></i>Modifier</a></li>
+                <li><a class="dropdown-item text-danger" href="#" (click)="$event.stopPropagation()"><i class="bi bi-trash me-2"></i>Supprimer</a></li>
               </ul>
             </div>
           </div>
