@@ -16,11 +16,12 @@ import { LoginGuardGuard } from './guards/login-guard.guard';
 import { NewPostComponent } from './Post/new-post/new-post.component';
 import { CategoriesListComponent } from './categories-list/categories-list.component';
 import { RoleGuard } from './guards/role.guard';
-import { DeplacementComponent } from './deplacement/deplacement.component'; // <-- ADD THIS LINE
+import { DeplacementComponent } from './deplacement/deplacement.component';
 import { ListDeplacementComponent } from './deplacement/list-deplacement/list-deplacement.component';
 import { AddDeplacementComponent } from './deplacement/add-deplacement/add-deplacement.component';
 import { ListStoreComponent } from './deplacement/list-store/list-store.component';
 import { AddStoreComponent } from './deplacement/add-store/add-store.component';
+import { TransactionComponent } from './transaction/transaction.component'; // <-- Add this line
 
 const routes: Routes = [
   {
@@ -74,16 +75,20 @@ const routes: Routes = [
         path:'Post',
         component : NewPostComponent
       },
-        {
-      path: 'deplacement',
-      component: DeplacementComponent,
-      children: [
-        { path: '', component: ListDeplacementComponent }, // default listing
-        { path: 'add-deplacement', component: AddDeplacementComponent },
-        { path: 'list-store', component: ListStoreComponent },
-        { path: 'add-store', component: AddStoreComponent }
-      ]
-    }
+      {
+        path: 'deplacement',
+        component: DeplacementComponent,
+        children: [
+          { path: '', component: ListDeplacementComponent },
+          { path: 'add-deplacement', component: AddDeplacementComponent },
+          { path: 'list-store', component: ListStoreComponent },
+          { path: 'add-store', component: AddStoreComponent }
+        ]
+      },
+      {
+        path: 'transaction', // <-- Add this route
+        component: TransactionComponent
+      }
     ]
   }
 ];

@@ -1,0 +1,47 @@
+<div class="transaction-container">
+  <h2>Déplacer l'équipement</h2>
+  <div class="equipment-info">
+    <strong>S/N&nbsp;:</strong> {{ equipment?.serialNumber }}<br>
+    <strong>Description&nbsp;:</strong> {{ equipment?.description }}
+  </div>
+
+  <form [formGroup]="moveForm" (ngSubmit)="onSubmit()" class="move-form">
+    <div class="form-group">
+      <label for="store">Magasin ("Store")</label>
+      <select id="store" formControlName="storeId">
+        <option [value]="null">---</option>
+        <option *ngFor="let s of stores" [value]="s.id">{{ s.name }}</option>
+      </select>
+    </div>
+
+    <div class="or-divider">Ou</div>
+
+    <div class="form-group">
+      <label for="projet">Projet</label>
+      <select id="projet" formControlName="projetId">
+        <option [value]="null">---</option>
+        <option *ngFor="let p of projects" [value]="p.id">{{ p.nom }}</option>
+      </select>
+    </div>
+
+    <div class="form-group" *ngIf="lignes.length > 0">
+      <label for="ligne">Ligne</label>
+      <select id="ligne" formControlName="ligneId">
+        <option [value]="null">---</option>
+        <option *ngFor="let l of lignes" [value]="l.id">{{ l.nom }}</option>
+      </select>
+    </div>
+
+    <div class="form-group" *ngIf="postes.length > 0">
+      <label for="poste">Poste</label>
+      <select id="poste" formControlName="posteId">
+        <option [value]="null">---</option>
+        <option *ngFor="let po of postes" [value]="po.id">{{ po.name }}</option>
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="isSubmitting" class="move-btn">Déplacer</button>
+  </form>
+
+  <div *ngIf="message" class="result-message">{{ message }}</div>
+</div>

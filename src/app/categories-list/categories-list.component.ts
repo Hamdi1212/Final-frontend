@@ -21,8 +21,10 @@ export class CategoriesListComponent implements OnInit {
       this.categories = Array.isArray(data) ? data : (data?.$values || []);
       this.categories.forEach(category => {
         this.service.getEquipementByCategoryCode(category.code).subscribe(
-          (equipments: any[]) => {
-            this.equipmentCounts[category.code] = Array.isArray(equipments) ? equipments.length : 0;
+          (equipments: any) => {
+            // FIX: extract from $values if needed
+            const equipArray = Array.isArray(equipments) ? equipments : (equipments?.$values ?? []);
+            this.equipmentCounts[category.code] = equipArray.length;
           },
           (error) => {
             if (error.status === 404) {

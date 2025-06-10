@@ -246,3 +246,128 @@
 .excel-import-btn:hover {
   background-color: #1e4b7b;
 }
+.equipment-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid #eaeaea;
+    min-height: 180px;
+    position: relative;
+}
+
+/* Card Body */
+.card-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5rem;
+    min-width: 0;
+}
+
+/* Action Buttons aligned vertically centered, at right */
+.equipment-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-left: auto;
+    min-width: 120px;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: transparent;
+}
+
+/* Move Button - Yellow */
+.move-btn {
+    background-color: #f5c542;
+    color: #664d03;
+    border: none;
+    padding: 0.45rem 0.9rem;
+    border-radius: 5px;
+    font-size: 0.93rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.move-btn:hover {
+    background-color: #ffe066;
+}
+
+/* Modify Button - Green */
+.modify-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 0.45rem 0.9rem;
+    border-radius: 5px;
+    font-size: 0.93rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.modify-btn:hover {
+    background-color: #219150;
+}
+
+/* Delete Button - Red */
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.45rem 0.9rem;
+    border-radius: 5px;
+    font-size: 0.93rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+    .equipment-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .equipment-actions {
+        position: static;
+        margin: 1rem 0 0 0;
+        min-width: 0;
+        transform: none;
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 600px) {
+    .equipment-container {
+        padding: 0.3rem;
+    }
+    .card-body {
+        padding: 1rem;
+    }
+}

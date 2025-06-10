@@ -48,6 +48,9 @@ ngOnInit(): void {
   addEquipment() {
     this.router.navigate(['nouvel-equipement']);
   }
+  moveEquipment(item: any) {
+  this.router.navigate(['/transaction'], { state: { equipment: item } });
+}
 
   filterEquipment() {
     if (!this.searchTerm) {

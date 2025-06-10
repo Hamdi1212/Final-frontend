@@ -37,6 +37,7 @@ import { ListDeplacementComponent } from './deplacement/list-deplacement/list-de
 import { AddDeplacementComponent } from './deplacement/add-deplacement/add-deplacement.component';
 import { ListStoreComponent } from './deplacement/list-store/list-store.component';
 import { AddStoreComponent } from './deplacement/add-store/add-store.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { AddStoreComponent } from './deplacement/add-store/add-store.component';
     ListDeplacementComponent,
     AddDeplacementComponent,
     ListStoreComponent,
-    AddStoreComponent
+    AddStoreComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,

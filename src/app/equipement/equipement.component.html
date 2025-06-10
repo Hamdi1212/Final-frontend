@@ -33,28 +33,39 @@
   </div>
 
   <div class="equipment-grid">
-    <div *ngFor="let item of filteredEquipment" class="equipment-card">
-      <div class="card-header">
-        <span>Serial: {{item.serialNumber}}</span>
+  <div *ngFor="let item of filteredEquipment" class="equipment-card">
+    <div class="card-header">
+      <span><h3>{{item.description}}</h3> </span>
+    </div>
+    <div class="card-body">
+      <div class="detail-row">
+        <i class="bi bi-upc-scan"></i>
+        <h3>{{item.serialNumber}}</h3>
       </div>
-      <div class="card-body">
-        <div class="detail-row">
-          <i class="bi bi-upc-scan"></i>
-          <h3>{{item.description}}</h3>
-        </div>
-        <div class="detail-row">
-          <i class="bi bi-building"></i>
-          <span>Brand: {{item.marque}}</span>
-        </div>
-        <div class="detail-row">
-          <i class="bi bi-grid"></i>
-          <span>Category: {{item.category}}</span>
-        </div>
-        <div class="detail-row">
-          <i class="bi bi-calendar"></i>
-          <span>Added: {{item.input | date:'mediumDate'}}</span>
-        </div>
+      <div class="detail-row">
+        <i class="bi bi-building"></i>
+        <span>Brand: {{item.marque}}</span>
       </div>
+      <div class="detail-row">
+        <i class="bi bi-geo-alt"></i>
+        <span>Current emplacement: {{item.currentEmplacement}}</span>
+      </div>
+      <div class="detail-row">
+        <i class="bi bi-calendar"></i>
+        <span>Added: {{item.input | date:'mediumDate'}}</span>
+      </div>
+      <div class="equipment-actions">
+  <button class="move-btn" (click)="moveEquipment(item)" >
+    <i class="bi bi-arrow-left-right"></i> Move
+  </button>
+  <button class="modify-btn" >
+    <i class="bi bi-pencil-square"></i> Modify
+  </button>
+  <button class="delete-btn" >
+    <i class="bi bi-trash"></i> Delete
+  </button>
+</div>
     </div>
   </div>
+</div>
 </div>

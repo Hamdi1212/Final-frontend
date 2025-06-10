@@ -1,0 +1,92 @@
+.transaction-container {
+  max-width: 450px;
+  margin: 2.5rem auto 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(44, 62, 80, 0.11);
+  padding: 2.5rem 2rem 2rem 2rem;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
+.equipment-info {
+  background: #f4f7fa;
+  border-radius: 7px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  color: #34495e;
+  font-size: 1rem;
+}
+
+.move-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: 500;
+  color: #34495e;
+}
+
+select {
+  padding: 0.5rem 0.7rem;
+  border-radius: 5px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+select:focus {
+  border: 1.5px solid #1e87f0;
+  outline: none;
+}
+
+.or-divider {
+  text-align: center;
+  color: #888;
+  font-size: 1rem;
+  margin: 0.3rem 0;
+  font-style: italic;
+}
+
+.move-btn {
+  background: #f5c542;
+  color: #664d03;
+  border: none;
+  padding: 0.65rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 1.5rem;
+}
+
+.move-btn:disabled {
+  background: #f0e68c;
+  cursor: not-allowed;
+  color: #a59d5b;
+}
+
+.move-btn:hover:not(:disabled) {
+  background: #ffe066;
+}
+
+.result-message {
+  margin-top: 2rem;
+  text-align: center;
+  color: #27ae60;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
