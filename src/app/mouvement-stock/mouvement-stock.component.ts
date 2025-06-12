@@ -8,17 +8,13 @@ import { AuthService } from '../services/auth.service';
 })
 export class MouvementStockComponent implements OnInit {
   transactionsList: any[] = [];
-  constructor(private authService:AuthService){
-    this.authService.getTransaction().subscribe(data =>
-      {
-        this.transactionsList = data;
-      }
-    )
-  }
+
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    
+    this.authService.getTransaction().subscribe(data => {
+      // Extract .values or .$values if present, otherwise empty array
+      this.transactionsList = data?.$values ?? [];
+    });
   }
-
-
 }

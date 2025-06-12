@@ -5,9 +5,7 @@
       <h1 class="h2 fw-bold text-primary mb-1">Mouvement de stock</h1>
       <p class="text-muted mb-0">Historique des transactions d'équipements</p>
     </div>
-    <div class="d-flex">
-      <app-button-action></app-button-action>
-    </div>
+    
   </div>
 
   <!-- Transaction Grid -->
@@ -15,29 +13,42 @@
     <div class="card-body p-0">
       <!-- Grid Header -->
       <div class="grid-header row g-0 px-3 py-2 bg-light fw-medium small">
-        <div class="col-md-4">Numéro de série</div>
-        <div class="col-md-4">Date de transaction</div>
-        <div class="col-md-3">Statut</div>
+        <div class="col-md-2">Description</div>
+        <div class="col-md-2">Marque</div>
+        <div class="col-md-2">Numéro de série</div>
+        <div class="col-md-2">Date de transaction</div>
+        <div class="col-md-1">Statut</div>
+        <div class="col-md-2">Emplacement</div>
         <div class="col-md-1 text-end">Actions</div>
       </div>
 
       <!-- Grid Rows -->
       <div class="grid-content" style="max-height: 500px; overflow-y: auto;">
         <div *ngFor="let item of transactionsList" class="grid-row row g-0 px-3 py-2 border-bottom hover-bg">
-          <div class="col-md-4 d-flex align-items-center">
+          <div class="col-md-2 d-flex align-items-center">
+            {{item.description}}
+          </div>
+          <div class="col-md-2 d-flex align-items-center">
+            {{item.marque}}
+          </div>
+          <div class="col-md-2 d-flex align-items-center">
             <i class="bi bi-pc-display-horizontal me-2 text-primary"></i>
             {{item.serialNumber}}
           </div>
-          <div class="col-md-4 d-flex align-items-center">
+          <div class="col-md-2 d-flex align-items-center">
             <i class="bi bi-calendar-date me-2 text-secondary"></i>
             {{item.transactionDate}}
           </div>
-          <div class="col-md-3 d-flex align-items-center">
+          <div class="col-md-1 d-flex align-items-center">
             <span [class]="'badge ' + 
                 (item.status === 'New' ? 'bg-success' : 
                  item.status === 'Used' ? 'bg-warning text-dark' : 'bg-secondary')">
               {{item.status}}
             </span>
+          </div>
+          <div class="col-md-2 d-flex align-items-center">
+            <i class="bi bi-geo-alt me-2 text-info"></i>
+            {{item.deplacement || 'Non défini'}}
           </div>
           <div class="col-md-1 d-flex align-items-center justify-content-end">
             <button class="btn btn-sm btn-outline-primary me-1">
@@ -61,4 +72,3 @@
     <app-pagination></app-pagination>
   </div>
 </div>
-

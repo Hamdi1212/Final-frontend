@@ -40,7 +40,7 @@ export class TransactionComponent implements OnInit {
       posteId: [null]
     });
 
-    // Populate dropdowns (implement these methods in AuthService)
+    // Populate stores and projects
     this.auth.getStores().subscribe((data: any) => {
       this.stores = Array.isArray(data) ? data : (data?.$values ?? []);
     });
@@ -50,9 +50,21 @@ export class TransactionComponent implements OnInit {
 
     // When project changes, fetch lignes
     this.moveForm.get('projetId')?.valueChanges.subscribe(projectId => {
+      console.log('Projet selected:', projectId);
       if (projectId) {
         this.auth.getLigneById(projectId).subscribe((data: any) => {
-          this.lignes = Array.isArray(data) ? data : (data?.$values ?? []);
+          console.log('Ligne API raw data:', data);
+          // Handle array, $values, or single object
+          if (Array.isArray(data)) {
+            this.lignes = data;
+          } else if (data && Array.isArray(data.$values)) {
+            this.lignes = data.$values;
+          } else if (data && typeof data === 'object') {
+            this.lignes = [data];
+          } else {
+            this.lignes = [];
+          }
+          console.log('Lignes to display:', this.lignes);
         });
       } else {
         this.lignes = [];
@@ -63,9 +75,20 @@ export class TransactionComponent implements OnInit {
 
     // When ligne changes, fetch postes
     this.moveForm.get('ligneId')?.valueChanges.subscribe(ligneId => {
+      console.log('Ligne selected:', ligneId);
       if (ligneId) {
         this.auth.getPosteById(ligneId).subscribe((data: any) => {
-          this.postes = Array.isArray(data) ? data : (data?.$values ?? []);
+          console.log('Poste API raw data:', data);
+          if (Array.isArray(data)) {
+            this.postes = data;
+          } else if (data && Array.isArray(data.$values)) {
+            this.postes = data.$values;
+          } else if (data && typeof data === 'object') {
+            this.postes = [data];
+          } else {
+            this.postes = [];
+          }
+          console.log('Postes to display:', this.postes);
         });
       } else {
         this.postes = [];
